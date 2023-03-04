@@ -8,59 +8,30 @@ bot = telebot.TeleBot("5867307056:AAFLnmc7y6ktNOpQvqLFFl8FDHzlBCAKmeg")
 def start_message(message):
     # Создание кнопок
     markup = types.InlineKeyboardMarkup()
-    itembtn1 = types.InlineKeyboardButton('Новое ГДЗ', callback_data='new_hw')
-    itembtn2 = types.InlineKeyboardButton('Сочинение', callback_data='essay')
-    markup.add(itembtn1, itembtn2)
+    new_hm = types.InlineKeyboardButton('Новое ГДЗ', callback_data='new_hw')
+    essay = types.InlineKeyboardButton('Сочинение', callback_data='essay')
+    markup.add(new_hm, essay)
 
     # Отправка сообщения и кнопок
     bot.send_message(message.chat.id, "Привет", reply_markup=markup)
 
 
-@bot.message_handler(func=lambda message: message.text == "Новое ГДЗ")
-def gzd_message(message):
+@bot.callback_query_handlers(func=lambda callback: callback.data)
+def gzd_message(callback):
     # Создание кнопок
     markup = types.InlineKeyboardMarkup()
-    itembtn1 = types.InlineKeyboardButton('Математика/Геометрия', callback_data='math')
-    itembtn2 = types.InlineKeyboardButton('Физика', callback_data='physics')
-    itembtn3 = types.InlineKeyboardButton('Химия', callback_data='chemistry')
-    markup.add(itembtn1, itembtn2, itembtn3)
+    math_geo = types.InlineKeyboardButton('Математика/Геометрия', callback_data='math')
+    phys = types.InlineKeyboardButton('Физика', callback_data='physics')
+    chemistry = types.InlineKeyboardButton('Химия', callback_data='chemistry')
+    markup.add(math_geo, phys, chemistry)
 
     # Отправка сообщения и кнопок
     bot.send_message(message.chat.id, "Выбери предмет", reply_markup=markup)
 
+@bot.callback_query_handlers(func=lambda message: message.text == "Сочинение")
+def essay_message(message):
+    bot.send_message(message.chat.id, "Напишите тему для сочинения⬇️")
 
-@bot.callback_query_handler(func=lambda call: True)
-def callback_inline(call):
-    if call.data == "new_hw":
-        # Создание кнопок
-        markup = types.InlineKeyboardMarkup()
-        itembtn1 = types.InlineKeyboardButton('Математика/Геометрия', callback_data='math')
-        itembtn2 = types.InlineKeyboardButton('Физика', callback_data='physics')
-        itembtn3 = types.InlineKeyboardButton('Химия', callback_data='chemistry')
-        markup.add(itembtn1, itembtn2, itembtn3)
 
-        # Отправка сообщения и кнопок
-        bot.send_message(call.message.chat.id, "Выбери предмет", reply_markup=markup)
-    elif call.data == "essay":
-        bot.send_message(call.message.chat.id, "Напишите тему для сочинения")
-        bot.register_next_step_handler(call.message, write_essay_topic)
-    elif call.data == "math":
-        bot.send_message(call.message.chat.id, "Отправьте фото в этот бот. Фото должно быть четкого качества.")
-        bot.register_next_step_handler(call.message, send_photo)
-    elif call.data == "physics":
-        bot.send_message(call.message.chat.id, "Отправьте фото в этот бот. Фото должно быть четкого качества.")
-        bot.register_next_step_handler(call.message, send_photo)
-    elif call.data == "chemistry":
-        bot.send_message(call.message.chat.id, "Отправьте фото в этот бот. Фото должно быть четкого качества.")
-        bot.register_next_step_handler(call.message, send_photo)
-def send_photo(message):
-    try:
-        # Проверка, отправил ли пользователь фото
-        if message.photo:
-            bot.send_message(message.chat.id, "Отлично")
-        else:
-            bot.send_message(message.chat.id, "Ошибка")
-    except Exception as e:
-        bot.send_message(message.chat.id, "Ошибка")
 
 bot.polling()
