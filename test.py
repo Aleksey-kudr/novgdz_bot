@@ -2,7 +2,7 @@ import logging
 from aiogram import Bot, Dispatcher, executor, types
 import markups as nav
 import config as cfg
-URL_CHAT = "@estetts"
+URL_CHAT = "@channel_testpopa"
 
 logging.basicConfig(level=logging.INFO)
 

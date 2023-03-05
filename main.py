@@ -64,10 +64,11 @@ async def essay_topic(message: types.Message):
 @dp.callback_query_handler(text_contains="next")
 async def next_step(message: types.CallbackQuery):
     await bot.send_message(message.from_user.id, "<b>Отлично, подпишись на каналы!</b>"
-                                              "\n1) <a href='https://t.me/channel_testpopa'>Мой канал</a>",
+                                              "\n1) <a href='https://t.me/estetts'>Мой канал</a>",
                                parse_mode="html", reply_markup=nav.keyboard_check)
 
-async def check_sub_channels(chat_member):
+def check_sub_channels(chat_member):
+    print(chat_member["status"])
     if chat_member["status"] != "left":
         return True
     else:
@@ -75,10 +76,10 @@ async def check_sub_channels(chat_member):
 
 @dp.callback_query_handler(text_contains="check")
 async def check(message:types.CallbackQuery):
-    if await check_sub_channels(cfg.CHANNELS, message.from_user.id):
+    if check_sub_channels(await bot.get_chat_member(chat_id=cfg.URL_CHAT, user_id=message.from_user.id)):
         await bot.send_message(message.from_user.id, "GOOD")
     else:
-        await bot.send_message(message.from_user.id, cfg.NOT_SUB_MESSAGE)
+        await bot.send_message(message.from_user.id, "Не харощь")
 
 
 if __name__ == "__main__":
