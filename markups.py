@@ -18,6 +18,7 @@ keyboard_start_subject.insert(btn_math_geo)
 keyboard_start_subject.insert(btn_phys)
 keyboard_start_subject.insert(btn_chemistry)
 
-keyboard_send =InlineKeyboardMarkup(row_width=1)
-btn_send = InlineKeyboardButton(text = "Отправлено", callback_data="sub_send")
-keyboard_send.insert(btn_send)
+keyboard_next =InlineKeyboardMarkup()
+btn_next = InlineKeyboardButton(text = "Далее", callback_data="next_send")
+keyboard_next.insert(btn_next)
+
