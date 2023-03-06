@@ -67,7 +67,8 @@ async def send_photo(message: types.Message):
     time.sleep(3)
     await bot.send_message(message.from_user.id, "<i>Загрузка...</i>", parse_mode="html")
     time.sleep(3)
-    await bot.send_message(message.from_user.id, "<b>Успешно!✅\n\n  Нажмите кнопку ниже</b>", parse_mode="html",
+    await bot.send_message(message.from_user.id, "<b>Успешно!✅\n\n"
+                                                 "Нажмите кнопку ниже</b>", parse_mode="html",
                            reply_markup=nav.keyboard_next)
 
 #Отправка темы сочинения начинается с кавычки
@@ -81,7 +82,8 @@ async def essay_topic(message: types.Message):
     time.sleep(3)
     await bot.send_message(message.from_user.id, "<i>Загрузка...</i>", parse_mode="html")
     time.sleep(3)
-    await bot.send_message(message.from_user.id, "<b>Успешно!✅\n\n  Нажмите кнопку ниже</b>", parse_mode="html",
+    await bot.send_message(message.from_user.id, "<b>Успешно!✅\n\n"
+                                                 "Нажмите кнопку ниже</b>", parse_mode="html",
                            reply_markup=nav.keyboard_next)
 
 @dp.callback_query_handler(text_contains="next")
