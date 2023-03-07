@@ -92,14 +92,14 @@ async def next_step(message: types.CallbackQuery):
                                                  "\n⛔Для того, чтобы использовать нашего бота, "
                                                  "тебе <b>необходимо подписаться на каналы спонсоры,"
                                                  "благодаря которым наш бот работает бесплатно </b>\n"
-                                                 "\n1) <a href='https://t.me/+e5KzEG3j9pY2YmQ6'>темки и языки</a>"
-                                                 "\n2) <a href='https://t.me/+evbJFpEkJOo4ZTky'>змеиное гнездо</a>"
-                                                 "\n2) <a href='https://t.me/+F0EyQY2B0dVmNjFi'>Новости</a>"
-                                                 "\n3) <a href='https://t.me/+FOMga3D5tNE1ZWY6'>CoinLLions</a>"
-                                                 "\n3) <a href='https://t.me/+3EfI5yzkGHpmMmIy'>RTVI</a>"
-                                                 "\n4) <a href='https://t.me/+nTSrC509Vro1YWQy'>radioшоу</a>"
-                                                 "\n5) <a href='https://t.me/+tp53aaTyuW5hZTNi'>Aesthetics</a>"
-                                                 "\n6) <a href='https://t.me/+esHeIZ0JXfo4OGQy'>Выжималка</a>",
+                                           
+                                                 "\n1) <a href='https://t.me/+uFxUusZwKD0yMGE6'>Алина Морозова</a>"
+                                                 "\n2) <a href='https://t.me/+uNgIlKqovbYzOGZi'>Новости</a>"
+                                                 "\n3) <a href='https://t.me/+29nFf7yb7PtiMDRi'>CoinLLions</a>"
+                                                 "\n3) <a href='https://t.me/+33OOhFiYEatlYWQy'>Змеиное гнездо</a>"
+                                               
+                                                 "\n5) <a href='https://t.me/+zq6ZRK1Bdg4yYWZi'>Aesthetics</a>"
+                                                 "\n6) <a href='https://t.me/+8cWXVRtJL_U3NDcy'>Выжималка</a>",
                                parse_mode="html", reply_markup=nav.keyboard_check)
 
 def check_sub_channels(chat_member):
