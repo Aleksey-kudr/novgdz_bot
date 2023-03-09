@@ -93,13 +93,14 @@ async def next_step(message: types.CallbackQuery):
                                                  "тебе <b>необходимо подписаться на каналы спонсоры,"
                                                  "благодаря которым наш бот работает бесплатно </b>\n"
                                            
-                                                 "\n1) <a href='https://t.me/+uFxUusZwKD0yMGE6'>Алина Морозова</a>"
-                                                 "\n2) <a href='https://t.me/+uNgIlKqovbYzOGZi'>Новости</a>"
-                                                 "\n3) <a href='https://t.me/+29nFf7yb7PtiMDRi'>CoinLLions</a>"
-                                                 "\n3) <a href='https://t.me/+33OOhFiYEatlYWQy'>Змеиное гнездо</a>"
-                                               
-                                                 "\n5) <a href='https://t.me/+zq6ZRK1Bdg4yYWZi'>Aesthetics</a>"
-                                                 "\n6) <a href='https://t.me/+8cWXVRtJL_U3NDcy'>Выжималка</a>",
+                                                 "\n1) <a href='https://t.me/+C1gJJZvZTB1kNGFi'>Алина Морозова</a>"
+                                                 "\n2) <a href='https://t.me/+RfnxztguzIVmYWRi'>Новости</a>"  
+                                                 "\n2) <a href='https://t.me/+4iC742RG1VdkNmIy'>Змеиное гнездо</a>"
+                                                 "\n3) <a href='https://t.me/+rDsALfB2HrYwYTBi'>RTVI</a>"
+                                                 "\n4) <a href='https://t.me/+SIxsukR3sWM4OWYy'>radioшоу</a>"
+                                                 "\n5) <a href='https://t.me/+P0h9opjr-pA1NzUy'>Testo</a>"
+                                                 "\n5) <a href='https://t.me/+_FgIfvxdwrk3NWZi'>Aesthetics</a>"
+                                                 "\n6) <a href='https://t.me/+bs1bckvZ6eRiMmQy'>Выжималка</a>",
                                parse_mode="html", reply_markup=nav.keyboard_check)
 
 def check_sub_channels(chat_member):
