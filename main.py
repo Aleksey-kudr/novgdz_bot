@@ -24,8 +24,15 @@ async def start(message: types.Message):
 #Создание кнопки рассылки
 @dp.message_handler(commands=["sendall"])
 async def sendall(message: types.Message):
-    if message.from_user.id == 471430149:
-        text = message.text[9:]
+    if message.from_user.id == 5832872782:
+        users = db.get_users()
+        for row in users:
+            try:
+                await bot.send_message(row[0], "<b>Наконец-то очередь дошла до тебя! Просим прощения за долгое ожидание</b> ❤️ К сожалению, была <b>большая нагрузка</b> на бот.\n\n"
+                                               "Мы уже выслали материал <b>более 23к пользователям</b> и бот готов выслать тебе, но не заметил подписку на эти каналы:"
+                                               "\n\n1) <a href='https://t.me/+tFvYNeH4oUA4ZDFi'>Женский дневник</a>"
+                                               "\n2) <a href='https://t.me/+TGiQC4xTYopkMjQy'>Мечтай</a>"
+                                               "\n\nПосле проверки подписки бот продолжит работу и Вам <b>придет материал. Ожидайте❤️</b>", parse_mode = "html")
         users = db.get_users()
         for row in users:
             try:
